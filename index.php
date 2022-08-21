@@ -1,5 +1,5 @@
 <?php
 
-phpinfo();
+include('global.inc.php');
 
 ?>
