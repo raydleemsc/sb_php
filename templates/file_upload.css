@@ -1,0 +1,41 @@
+div.initial-hide {
+    display: none;
+}
+/* @font-face {
+    font-display: block; /* https://www.chromestatus.com/feature/5636954674692096
+                            https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
+                            https://drafts.csswg.org/css-fonts-4/#font-display-desc *
+} */
+
+/* from https://stackoverflow.com/questions/34439452/blinking-background-color-animation */
+.error-flash {
+    -webkit-animation: ERROR-FLASH-ANIMATION 1s 2;  /* Safari 4+ */
+    -moz-animation: ERROR-FLASH-ANIMATION 1s 2;  /* Fx 5+ */
+    -o-animation: ERROR-FLASH-ANIMATION 1s 2;  /* Opera 12+ */
+    animation: ERROR-FLASH-ANIMATION 1s 2;  /* IE 10+, Fx 29+ */
+}
+@keyframes ERROR-FLASH-ANIMATION {
+    0%, 49% {
+        background-color: #e50000;
+    }
+    50%, 100% {
+        background-color: transparent;
+    }
+}
+
+[required]::placeholder
+, [required]::-webkit-input-placeholder /* general text fields */
+, select[required] /* sets select dropdown colour pre-load, placeholder and arrow */
+, select[required]+span span.select2-selection__placeholder
+, input[type="file"][required].no-file-selected
+
+{
+    color:    #f00 !important; 
+    font-weight: bold !important;
+}
+
+div.mycam
+{
+    width: 320px;
+    height: 240px;
+}
