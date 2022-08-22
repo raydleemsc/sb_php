@@ -1,11 +1,11 @@
 var templates = '';
 
-$().ready(function()
+$(document).ready(function()
 {
     $('#img').change(readImageJpegOrig);
 
     let fileHandle;
-    $('#img').addEventListener('click', pickFile() );
+    $('#img').addEventListener("click", pickFile, false );
 
 });
 

@@ -39,3 +39,12 @@ div.mycam
     width: 320px;
     height: 240px;
 }
+
+/* darkmode everything */
+
+*
+{
+    background-color: black;
+    color: white;
+    color-scheme: dark;
+}
