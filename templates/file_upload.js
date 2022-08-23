@@ -45,6 +45,7 @@ function readImageJpegOrig() {
     
         if(jpeg.length < (2*1024*1024))
         {
+            $('#img').removeClass('no-file-selected');
             $('#input_picture').val(jpeg);
             $("#results").html('<img src="'+jpeg+'" class="img-responsive" style="max-height:100%;"/>') ;
         }
