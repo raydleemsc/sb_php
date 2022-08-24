@@ -5,19 +5,21 @@ $(document).ready(function()
     $('#img').change(readImageJpegOrig);
 
     let fileHandle;
-    $('#img').addEventListener("click", pickFile, false );
+    $('#img')[0].addEventListener("click", pickFile, false );
 
 });
 
 async function pickFile() {
     [fileHandle] = await window.showOpenFilePicker({
-      startIn: 'documents'
+      startIn: 'pictures'
     });
     const file = await fileHandle.getFile();
     const contents = await file.text();
-  //   textArea.value = contents;
+    console.log(file.name);
+    $("#img").content(contents);
   }
 
+  
 // from - https://stackoverflow.com/questions/47913980/js-convert-an-image-object-to-a-jpeg-file
 function readImageJpegOrig() {
 	var img = new Image;
