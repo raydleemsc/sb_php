@@ -52,8 +52,10 @@ function get_system_status($status_filename="status.txt",$debug=false){
         // create system status file as closed
         set_system_status($status_filename=$status_filename,$debug=$debug);
     }
-    $status=get_file2arr($status_filename,$debug=$debug)[0];
-    if($debug && $status){echo "<br><br>status=";print_r($status);}
+    if($status){
+        $status=get_file2arr($status_filename,$debug=$debug)[0];
+        if($debug && $status){echo "<br><br>status=";print_r($status);}
+    }
 }
 
 function cc_validate($debug=false){
