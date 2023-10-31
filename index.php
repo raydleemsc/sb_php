@@ -4,9 +4,11 @@
 // setcookie("test", "test", time()-3600);
 // setcookie("red", "red", time()-3600);
 // setcookie("blue", "blue", time()-3600);
-setcookie("admin", "admin", time()+3600);
+// setcookie("admin", "admin", time()+36000);
+// setcookie("admin", "admin", time()-3600);
 
 // echo "<br>setcookie(test)=".$cookie_test;
+// echo "<br>time=".(string)time();
 echo "<br>_COOKIE="; print_r($_COOKIE);
 echo "<br>_REQUEST="; print_r($_REQUEST);
 
