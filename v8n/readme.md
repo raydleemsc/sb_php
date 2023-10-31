@@ -31,3 +31,5 @@ Add an entry in the `admin.txt` file and create a cookie of the same name and va
 ### Features
 1. Removing an entry from one of the whitelists will deny access on the next page load.
 1. Denial of access will lead to clearing of all cookies by expiry.
+### Next steps
+1. Improve admin whitelist management with admin controls (e.g. system status, add/remove admins)
