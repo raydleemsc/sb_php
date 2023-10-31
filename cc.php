@@ -1,5 +1,10 @@
 <?php
 
+define('STATUS_FILE','status.txt');
+define('ADMIN_FILE','admin.txt');
+define('ACCESS_FILE','access.txt');
+
+
 function assoc_index ($arr, $index) {
     $return_value = "";
     if ($index < count($arr)) {
@@ -27,9 +32,10 @@ function get_file2arr($filename,$debug=false){
 
 function check_rights($level="",$debug=false){
     $approved=false;
-    if(in_array($level,array("admin","access"))){
+    $file_array=array("admin"=>ADMIN_FILE,"access"=>ACCESS_FILE);
+    if(array_key_exists($level,$file_array)){
         error_log( "CR:checking for $level rights");
-        $level_list=get_file2arr("$level.txt",$debug=$debug);
+        $level_list=get_file2arr($file_array[$level],$debug=$debug);
         $cookie_index=0;
         while(!$approved && $cookie_index<count($_COOKIE)){
             $ck_item=assoc_index($_COOKIE,$cookie_index);
@@ -52,14 +58,14 @@ function clear_cookies(){
 
 function set_system_status($status,$status_filename,$debug=false){
     if($status=="") $status="close";
-    if($status_filename=="") $status_filename="status.txt";
+    if($status_filename=="") $status_filename=STATUS_FILE;
     error_log( "SSS:Setting system status (in $status_filename) to $status");
     // echo "SSS:Setting system status (in $status_filename) to $status";
     file_put_contents($status_filename,$status);
 }
 
 function get_system_status($status_filename,$debug=false){
-    if($status_filename=="") $status_filename="status.txt";
+    if($status_filename=="") $status_filename=STATUS_FILE;
     $status="";
     error_log( "GSS:Getting system status from $status_filename");
     if(!file_exists($status_filename)){
@@ -78,7 +84,7 @@ function get_system_status($status_filename,$debug=false){
 }
 
 function cc_validate($debug=false){
-    $status_filename="status.txt";
+    $status_filename=STATUS_FILE;
     // 0. check for setcookie urlparm and setcookie then reload page
     foreach($_REQUEST as $k => $v){
         switch ($k) {
@@ -130,7 +136,7 @@ function cc_validate($debug=false){
         error_log( "CCV:Generate cookie");
         $new_cookie="access_".(string)random_int(1698733138,time());
         error_log( "CCV:Add cookie=$new_cookie to whitelist");
-        $fp = fopen("access.txt", 'a');
+        $fp = fopen(ACCESS_FILE, 'a');
         fwrite($fp, $new_cookie.PHP_EOL);
         fclose($fp);
         error_log( "CCV:Set client cookie=$new_cookie");
