@@ -1,9 +1,9 @@
 <?php
 
-define('STATUS_FILE','status.txt');
-define('ADMIN_FILE','admin.txt');
-define('ACCESS_FILE','access.txt');
-
+define('V8N_HOME','v8n/');
+define('STATUS_FILE',V8N_HOME.'status.txt');
+define('ADMIN_FILE',V8N_HOME.'admin.txt');
+define('ACCESS_FILE',V8N_HOME.'access.txt');
 
 function assoc_index ($arr, $index) {
     $return_value = "";
