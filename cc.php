@@ -117,8 +117,8 @@ function cc_validate($debug=false){
         // if either admin or access approved
         if($admin || $access){
             // permit access
-        error_log( "CCV:Access granted");
-        return true;
+            error_log( "CCV:Access granted");
+            return true;
         } else {
             clear_cookies();
         }
