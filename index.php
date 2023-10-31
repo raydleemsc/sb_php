@@ -1,21 +1,8 @@
 <?php
-// $ck_opts="";
-// setcookie("test", "test", time()-3600);
-// setcookie("test", "test", time()-3600);
-// setcookie("red", "red", time()-3600);
-// setcookie("blue", "blue", time()-3600);
-// setcookie("admin", "admin", time()+36000);
-// setcookie("admin", "admin", time()-3600);
 
-// echo "<br>setcookie(test)=".$cookie_test;
-// echo "<br>time=".(string)time();
-echo "<br>_COOKIE="; print_r($_COOKIE);
-echo "<br>_REQUEST="; print_r($_REQUEST);
+// setcookie("admin_1698733138", "admin_1698733138");
 
-echo "<br>";
 include("v8n/cc.php");
 $cc=cc_validate(true);
-echo "<br>cc_validate=(".$cc.")";
-// echo "<br>cc_validate=(".b2s($cc[0]).", ".b2s($cc[1]).")";
 
 ?>
