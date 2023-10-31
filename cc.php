@@ -101,6 +101,7 @@ function cc_validate($debug=false){
             foreach($oc_array as $oc_key){
                 if(array_key_exists($oc_key,$_REQUEST)){
                     $req_key=$oc_key;
+                    break;
                 }
             }
 
