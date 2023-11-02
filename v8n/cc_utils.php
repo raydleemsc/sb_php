@@ -4,6 +4,7 @@ define('V8N_HOME',__DIR__);
 define('STATUS_FILE',V8N_HOME.'/status.txt');
 define('ADMIN_FILE',V8N_HOME.'/admin.txt');
 define('ACCESS_FILE',V8N_HOME.'/access.txt');
+define('FILE_ARRAY',array("admin"=>ADMIN_FILE,"access"=>ACCESS_FILE));
 
 function assoc_index ($arr, $index) {
     $return_value = "";
@@ -32,7 +33,7 @@ function get_file2arr($filename,$debug=false){
 
 function check_rights($level="",$debug=false){
     $approved=false;
-    $file_array=array("admin"=>ADMIN_FILE,"access"=>ACCESS_FILE);
+    $file_array=FILE_ARRAY;
     if(array_key_exists($level,$file_array)){
         if($debug) error_log( "CR:checking for $level rights");
         $level_list=get_file2arr($file_array[$level],$debug=$debug);
