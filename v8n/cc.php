@@ -17,7 +17,7 @@ function cc_validate($debug=false){
                 }
                 if($debug) error_log("CCV:Setting cookie, vk=$vk, vv=$vv");
                 setcookie($vk,$vv);
-                header("Refresh:0; url=/");
+                header("Refresh:0; url=".ACCESS_URL);
                 continue;
             default:
                 continue;

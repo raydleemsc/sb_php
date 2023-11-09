@@ -5,6 +5,8 @@ define('STATUS_FILE',V8N_HOME.'/status.txt');
 define('ADMIN_FILE',V8N_HOME.'/admin.txt');
 define('ACCESS_FILE',V8N_HOME.'/access.txt');
 define('FILE_ARRAY',array("admin"=>ADMIN_FILE,"access"=>ACCESS_FILE));
+define('ACCESS_URL','/');
+define('NOACCESS_URL','/login2.php');
 
 function assoc_index ($arr, $index) {
     $return_value = "";
@@ -137,7 +139,7 @@ function set_admin($debug=false){
         setcookie("admin_cookie", $admin_cookie, $arr_cookie_options);
         if($debug) error_log("SA:_COOKIE=".print_r($_COOKIE,true));
     }
-    header("Refresh:0; url=/");
+    header("Refresh:0; url=".(ACCESS_URL));
 }
 
 ?>
