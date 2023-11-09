@@ -2,7 +2,7 @@
 
 require_once('cc_utils.php');
 
-function cc_validate($debug=false){
+function cc_validate($debug=DEBUG_DEFAULT){
     $status_filename=STATUS_FILE;
     // 0. check for setcookie urlparm and setcookie then reload page
     foreach($_REQUEST as $k => $v){

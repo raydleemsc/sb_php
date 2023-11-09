@@ -1,5 +1,7 @@
 <?php
 
+define('DEBUG_DEFAULT',true);
+
 define('V8N_HOME',__DIR__);
 define('STATUS_FILE',V8N_HOME.'/status.txt');
 define('ADMIN_FILE',V8N_HOME.'/admin.txt');
@@ -21,7 +23,7 @@ function assoc_index ($arr, $index) {
     return $return_value;
 }
 
-function get_file2arr($filename,$debug=false){
+function get_file2arr($filename,$debug=DEBUG_DEFAULT){
     // get whitelist
     $whitelist = array();
     if(file_exists($filename)) {
@@ -33,7 +35,7 @@ function get_file2arr($filename,$debug=false){
     return $whitelist;
 }
 
-function check_rights($level="",$debug=false){
+function check_rights($level="",$debug=DEBUG_DEFAULT){
     $approved=false;
     $file_array=FILE_ARRAY;
     if(array_key_exists($level,$file_array)){
@@ -51,7 +53,7 @@ function check_rights($level="",$debug=false){
     return $approved;
 }
 
-function clear_cookies($debug=false){
+function clear_cookies($debug=DEBUG_DEFAULT){
     if($debug) error_log("CC:Clearing all cookies");
     foreach($_COOKIE as $k => $v){
         if($debug) error_log("CC:Clearing $k => $v");
@@ -59,7 +61,7 @@ function clear_cookies($debug=false){
     }
 }
 
-function set_system_status($status,$status_filename,$debug=false){
+function set_system_status($status,$status_filename,$debug=DEBUG_DEFAULT){
     if($status=="") $status="close";
     if($status_filename=="") $status_filename=STATUS_FILE;
     if($debug) error_log( "SSS:Setting system status (in $status_filename) to $status");
@@ -67,7 +69,7 @@ function set_system_status($status,$status_filename,$debug=false){
     file_put_contents($status_filename,$status);
 }
 
-function get_system_status($status_filename,$debug=false){
+function get_system_status($status_filename,$debug=DEBUG_DEFAULT){
     if($status_filename=="") $status_filename=STATUS_FILE;
     $status="";
     if($debug) error_log( "GSS:Getting system status from $status_filename");
@@ -86,7 +88,7 @@ function get_system_status($status_filename,$debug=false){
     return $status;
 }
 
-function set_admin($debug=false){
+function set_admin($debug=DEBUG_DEFAULT){
 
     // Dangerous to leave unsecured
     // 1698733138 is used as it is the base time for generation of this module
