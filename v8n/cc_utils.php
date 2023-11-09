@@ -123,7 +123,7 @@ function set_admin($debug=false){
         }else{
             if($debug) error_log("SA:ERROR:Write to ".ADMIN_FILE." not possible");
         }
-    } else error_log("SA:Cookie $admin_cookie already found in admin file.");
+    } else if($debug) error_log("SA:Cookie $admin_cookie already found in admin file.");
     if(!$set_cookie){
         $arr_cookie_options = array (
             // 'expires' => time() + 60*60*24*30, 
