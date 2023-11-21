@@ -1,12 +1,9 @@
 <?php
 
+require_once('cc_storage.php');
+
 define('DEBUG_DEFAULT',true);
 
-define('V8N_HOME',__DIR__);
-define('STATUS_FILE',V8N_HOME.'/status.txt');
-define('ADMIN_FILE',V8N_HOME.'/admin.txt');
-define('ACCESS_FILE',V8N_HOME.'/access.txt');
-define('FILE_ARRAY',array("admin"=>ADMIN_FILE,"access"=>ACCESS_FILE));
 define('ACCESS_URL','/');
 define('NOACCESS_URL','/login2.php');
 
@@ -21,18 +18,6 @@ function assoc_index ($arr, $index) {
         }
     }
     return $return_value;
-}
-
-function get_file2arr($filename,$debug=DEBUG_DEFAULT){
-    // get whitelist
-    $whitelist = array();
-    if(file_exists($filename)) {
-        $whitelist = array_map('trim',explode("\n",file_get_contents($filename)));
-        if($debug) error_log( "GFA:$filename=". print_r($whitelist,true));
-    } else {
-        if($debug) error_log("GFA:$filename=not found");
-    }
-    return $whitelist;
 }
 
 function check_rights($level="",$debug=DEBUG_DEFAULT){
@@ -129,13 +114,15 @@ function set_admin($debug=DEBUG_DEFAULT){
         }
     } else if($debug) error_log("SA:Cookie $admin_cookie already found in admin file.");
     if(!$set_cookie){
-        $arr_cookie_options = array (
-            // 'expires' => time() + 60*60*24*30, 
-            'path' => '/'//, 
-            // 'domain' => '.example.com', // leading dot for compatibility or use subdomain
-            // 'secure' => true,     // or false
-            // 'httponly' => true,    // or false
-            // 'samesite' => 'None' // None || Lax  || Strict
+        $arr_cookie_options = array ('' // empty string to enable comma prefix on array member lines below
+            // ,'expires' => time() + 60*60*24*30 // number of seconds from epoch start
+            ,'path' => '/'
+            // ,'domain' => '.example.com' // leading dot for compatibility or use subdomain
+            // ,'secure' => true     // or false - available only to https connections
+            // ,'httponly' => true    // or false - available only to http connections
+            // ,'samesite' => 'None' // None || Lax  || Strict - CORS policy adherance
+            //   from https://web.dev/articles/samesite-cookies-explained
+            //   RFC6265bis - https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site-00
             );
         // setcookie('TestCookie', 'The Cookie Value', $arr_cookie_options);  
         setcookie("admin_cookie", $admin_cookie, $arr_cookie_options);
