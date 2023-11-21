@@ -6,11 +6,14 @@ The cc.php script provides a simple validation check based on cookies and a serv
 1. Copy the `cc.php` script into a folder (e.g. 'v8n').
 1. (Optional for better security) Add Directory directives in apache server conf to secure the folder from distribution by the server, thus -
       ``` conf
+      Include v8n/apache.conf
+      ```
+      <!-- ``` conf
       <Directory v8n>
           Order deny,allow
           Deny from all
       </Directory>
-      ```
+      ``` -->
 1. include the php at the head of the index script.
 2. call the validation function and allow or deny access based on the boolean result.
 ### Startup
