@@ -27,6 +27,7 @@ do
         copied=
         for filespec in "${filespecs[@]}"; do 
             # echo -n "filespec=$filespec - "
+            rm $dest/$filespec
             cp_log=$(cp -u -v $src/$filespec $dest)
             cp_rc=$?
             # [[ "$cp_rc" == 0 && ! -z "$cp_log" ]] && echo "(rc=$cp_rc)${cp_log}"

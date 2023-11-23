@@ -1,11 +1,7 @@
 <?php
 
-require_once('cc_storage.php');
-
-define('DEBUG_DEFAULT',true);
-
-define('ACCESS_URL','/');
-define('NOACCESS_URL','/login2.php');
+require_once('utils_config.php');
+require_once('storage.php');
 
 function assoc_index ($arr, $index) {
     $return_value = "";

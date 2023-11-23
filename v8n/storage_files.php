@@ -1,10 +1,6 @@
 <?php
 
-define('STATUS_FILE',V8N_HOME.'/status.txt');
-define('ADMIN_FILE',V8N_HOME.'/admin.txt');
-define('ACCESS_FILE',V8N_HOME.'/access.txt');
-define('FILE_ARRAY',array("admin"=>ADMIN_FILE,"access"=>ACCESS_FILE));
-
+require_once('storage_files_config.php');
 
 function get_file2arr($filename,$debug=DEBUG_DEFAULT){
     // get whitelist
