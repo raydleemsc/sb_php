@@ -1,6 +1,6 @@
 <?php
 
-define('CMD_V8N_DEBUG_DEFAULT',true);
+require_once("cmd_config.php");
 
 require_once("cmds.php");
 // var_dump($argc); //number of arguments passed 
