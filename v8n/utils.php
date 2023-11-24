@@ -42,7 +42,7 @@ function clear_cookies($debug=DEBUG_DEFAULT){
     }
 }
 
-function set_system_status($status,$status_filename,$debug=DEBUG_DEFAULT){
+function set_system_status($status,$status_filename="",$debug=DEBUG_DEFAULT){
     if($status=="") $status="close";
     if($status_filename=="") $status_filename=STATUS_FILE;
     if($debug) error_log( "SSS:Setting system status (in $status_filename) to $status");
@@ -50,7 +50,7 @@ function set_system_status($status,$status_filename,$debug=DEBUG_DEFAULT){
     file_put_contents($status_filename,$status);
 }
 
-function get_system_status($status_filename,$debug=DEBUG_DEFAULT){
+function get_system_status($status_filename="",$debug=DEBUG_DEFAULT){
     if($status_filename=="") $status_filename=STATUS_FILE;
     $status="";
     if($debug) error_log( "GSS:Getting system status from $status_filename");
