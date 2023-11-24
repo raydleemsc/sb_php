@@ -2,6 +2,10 @@
 
 require_once('storage_db_config.php');
 
+function db_functions_complete(){
+    return false;
+}
+
 function create_db($new_db_file_name){
     close_db(open_db($new_db_file_name));
 }
@@ -24,6 +28,10 @@ function close_db($db_file_handle){
     } catch(PDOException $e) {
         error_call($e);
     }
+}
+
+function db_exists(){
+    return (file_exists(FILE_DB) && db_functions_complete());
 }
 
 function table_exists(){

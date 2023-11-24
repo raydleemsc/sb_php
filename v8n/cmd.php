@@ -47,6 +47,9 @@ if ($argc>$start){
             case 'status':
                 echo "get_system_status()=".get_system_status()."\n";
                 break;
+            case 'showam':
+                echo "access_method()=".access_method()."\n";
+                break;
             default:
                 $invalid_cmds++;
                 echo "Undefined command '$argv[$x]'\n";
