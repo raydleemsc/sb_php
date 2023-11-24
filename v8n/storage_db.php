@@ -3,7 +3,7 @@
 require_once('storage_db_config.php');
 
 function db_functions_complete(){
-    return false;
+    return DB_FUNCTIONS_COMPLETE;
 }
 
 function create_db($new_db_file_name){
