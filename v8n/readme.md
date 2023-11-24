@@ -36,3 +36,5 @@ Add an entry in the `admin.txt` file and create a cookie of the same name and va
 1. Denial of access will lead to clearing of all cookies by expiry.
 ### Next steps
 1. Improve admin whitelist management with admin controls (e.g. system status, add/remove admins)
+1. Change cli close cmd to provide new key(s) for review.
+1. Add openadmin cmd to permit one access key to promote to admin and then immediately closeadmin. 
