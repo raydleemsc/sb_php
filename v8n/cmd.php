@@ -2,8 +2,6 @@
 
 define('CMD_V8N_DEBUG_DEFAULT',true);
 
-echo "PHP v8n command\n";
-
 require_once("cmds.php");
 // var_dump($argc); //number of arguments passed 
 // var_dump($argv); //the arguments passed
