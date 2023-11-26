@@ -38,3 +38,4 @@ Add an entry in the `admin.txt` file and create a cookie of the same name and va
 1. Improve admin whitelist management with admin controls (e.g. system status, add/remove admins)
 1. Change cli close cmd to provide new key(s) for review.
 1. Add openadmin cmd to permit one access key to promote to admin and then immediately closeadmin. 
+1. Separating interface from implementation will include creating a role-based access architecture, as well as change management controls and commands. 
