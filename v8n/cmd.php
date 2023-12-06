@@ -28,6 +28,9 @@ if ($argc>$start){
             case 'showam':
                 echo "access_method()=".access_method()."\n";
                 break;
+            case 'help':
+                cmd_help();
+                break;
             default:
                 $invalid_cmds++;
                 echo "Undefined command '$argv[$x]'\n";

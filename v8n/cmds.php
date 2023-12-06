@@ -4,7 +4,10 @@ require_once("cmd_utils.php");
 
 function cmd_help(){
     echo "\n";
-    echo "v8n <t|f>: call standard validation check with debug flag\n";
+    echo "help: show this message.\n";
+    echo "open: open for auto-access cookie.\n";
+    echo "close: close for auto-access cookie.\n";
+    echo "showam: show current storage access method.\n";
     echo "\n";
 }
 
