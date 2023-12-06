@@ -1,6 +1,6 @@
 <?php
 
-require_once("validate.php");
+require_once("cmd_utils.php");
 
 function cmd_help(){
     echo "\n";
