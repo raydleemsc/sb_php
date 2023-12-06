@@ -15,26 +15,6 @@ if ($argc>$start){
     for ($x=$start; $x < count($argv); $x++) { 
         echo "($x:$argv[$x]) ";
         switch ($argv[$x]) {
-            case 'v8n':
-                $valid_cmds++;
-                $cmd_parm=CMD_V8N_DEBUG_DEFAULT;
-                if(($x+1)<count($argv)){
-                    switch (strpbrk(substr($argv[$x+1],0,1),'tf')) {
-                        case 't':
-                            $cmd_parm=true;
-                            $x++;
-                            break;
-                        case 'f':
-                            $cmd_parm=false;
-                            $x++;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                echo "validate(".($cmd_parm?"true":"false").")=";
-                var_dump(cmd_validate($cmd_parm));
-                break;
             case 'open':
             case 'close':
                 $status=get_system_status();

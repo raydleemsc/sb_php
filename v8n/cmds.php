@@ -8,10 +8,6 @@ function cmd_help(){
     echo "\n";
 }
 
-function cmd_validate($debug=false){
-    return validate($debug);
-}
-
 function cmd_open(){
     set_system_status("open");
 }
