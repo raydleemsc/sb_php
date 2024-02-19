@@ -1,6 +1,6 @@
 <?php
 
-function include_recent($from_dir){
+function include_recent($from_dir,$debug=false){
     // $files = array_diff(scandir($from_dir), array('..', '.'));
 
     // // $files = scandir("experiments");
@@ -36,11 +36,18 @@ function include_recent($from_dir){
     // echo("<br>");
     $fileList = array_reverse($fileList, TRUE);
     // print_r($fileList);
-    foreach ($fileList as $file_k=>$file_v) {
-        $file_k = new DateTime("@$file_k");
-        $file_k = $file_k->format('Y-m-d H:i:s');
-        echo("<br>$file_k &nbsp $file_v");
+    // foreach ($fileList as $file_k=>$file_v) {
+    //     $file_k = new DateTime("@$file_k");
+    //     $file_k = $file_k->format('Y-m-d H:i:s');
+    //     echo("<br>$file_k &nbsp $file_v");
+    // }
+
+    $latest=array_values($fileList)[0];
+    if ($debug) {
+        echo("<br>Including most recent experimental update=".$latest);
     }
+
+    include($latest);
 
 }
 
