@@ -1,13 +1,20 @@
 <?php
 
-$fname=$argv[1].'.php';
+if(isset($argv[1])){
+    $thou_fname=$argv[1].'.php';
 
-if(file_exists($fname)){
-    for ($i=0; $i < 1000; $i++) { 
-        include($fname);
+    $limit = 1;
+    if(isset($argv[2])){
+        if(is_numeric($argv[2])){
+            $limit = (int)$argv[2];
+        }
     }
-} else {
-    echo $fname.' not found';
-}
 
-?>
+    if(file_exists($thou_fname)){
+        for ($thou_i=0; $thou_i < $limit; $thou_i++) { 
+            include($thou_fname);
+        }
+    } else {
+        echo $thou_fname.' not found';
+    }
+}

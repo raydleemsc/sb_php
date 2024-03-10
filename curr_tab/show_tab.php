@@ -3,17 +3,22 @@
 include_once('show_tab_fn.php');
 
 $nl='';
+$rm='';
 $test = $_SERVER['DOCUMENT_ROOT'];
 if (isset($test) && ($test != '')) {
+    $rm='web';
     $nl = "<br>";
 } else {
+    $rm='cli';
     $nl = "\n";
 }
 
-
 // read in the json
+$fname = 'buynote_lgs2.json';
+if(!file_exists($fname)) $fname = 'curr_tab/'.$fname;
+if(!file_exists($fname)) echo 'cannot find '.$fname;
 
-$jsondata = file_get_contents('buynote_lgs2.json');
+$jsondata = file_get_contents($fname);
 $data = json_decode($jsondata, true);
 // $nl= "\n";
 $tab="\t";
@@ -104,23 +109,32 @@ for ($col=0; $col < 4; $col++) {
 
 $data9 = $data5;
 // echo 'data9='; print_r($data9);
-
-echo ($nl);
+if($rm=='cli'){ echo ($nl);}
 // Step 3: Use the data
+if($rm=='web') include("show_lgs1_table_css.html");
+if($rm=='web') echo "<table>\n";
+if($rm=='web') echo "\t<tbody>\n";
 if(is_array($data9)) {
     foreach ($data9 as $dk => $d) {
-        echo '['.$dk.'] => Array (';
+        if($rm=='cli'){ echo '['.$dk.'] => Array (';}
+        if($rm=='web') echo "\t\t<tr>\n";
         if(is_array($d)) {
             foreach($d as $k => $v){
-                echo '['.$k.'] => '.$tab.$v;
+                $td = '['.$k.'] => '.$tab.$v;
+                if($rm=='web') echo "\t\t\t<td>$v</td>\n";
+                if($rm=='cli') echo $td;
             }
         } else {
-            echo print_r($d,true);
+            // if($rm=='cli') echo print_r($d,true);
+            if($rm=='cli') echo '$d is not an array';
         }
         // echo '-------------------';
         // echo ('<br>');
-        echo (')'.$nl);
+        if($rm=='web') echo "\t\t</tr>\n";
+        if($rm=='cli') echo (')'.$nl);
     }
 }
+if($rm=='web') echo "\t</tbody>\n";
+if($rm=='web') echo "</table>\n";
 
 ?>
