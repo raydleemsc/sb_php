@@ -1,5 +1,7 @@
 <?php
 
+include_once('show_tab_fn.php');
+
 $nl='';
 $test = $_SERVER['DOCUMENT_ROOT'];
 if (isset($test) && ($test != '')) {
@@ -63,18 +65,6 @@ foreach ($data0 as $key => $value) {
     }
     // if(!in_array($d1,$data1)){ $data1[]['text'] = $d1; }
     if($dt_found=="false"){ $data1[]['text'] = $d1; }
-}
-
-function field_compare($array_a, $array_b, $field_name){
-    return $array_a[$field_name] > $array_b[$field_name];
-}
-
-function comparatortext($a, $b){
-    return field_compare($a, $b, 'text');
-}
-
-function comparatorloc($a, $b){
-    return field_compare($a, $b, 'loc');
 }
 
 // sort by iso codes alpha descending
